@@ -4,7 +4,7 @@
 Dans ce cours jeu 2D, vous contrôlez un personnage étrange chargé d'un cadavre cherchant une terre saine pour l'inhumer. Vos pérégrinations vous feront passer par des lieux aussi inhospitaliers que mystérieux où le danger guette à tout instant. Le jeu est également accompagné de diverses musiques habillant les différentes séquences. Il s'agit de l'adaptation en 2D de la fiction interactive, autrement plus longue et complète, "Des lits pour eux" : https://github.com/GutereuxMarde/Des-lits-pour-eux---FI
 
 
-![Image de l'écran titre](une tombe pour nous/images/une tombe pour nous.PNG "L'écran titre du jeu")
+![Image de l'écran titre](/une tombe pour nous/images/une tombe pour nous.PNG "L'écran titre du jeu")
 
 
 
