@@ -11,7 +11,7 @@ Dans ce cours jeu 2D, vous contrôlez un personnage étrange chargé d'un cadavr
 
 
 ## Installation
-Pour jouer au jeu, il vous suffira d'installer le fichier du jeu (une tombe pour nous.zip) et d'en extraire le dossier, avant de l'ouvrir via Visual Studio Code. N'hésitez pas à modifier le zoom de votre navigateur pour que le jeu s'adapte bien à votre écran.
+Pour jouer au jeu, il vous suffira d'installer le fichier du jeu (une tombe pour nous.zip) et d'en extraire le dossier, avant de l'ouvrir via Visual Studio Code. N'hésitez pas à modifier le zoom de votre navigateur pour que le jeu s'adapte bien à votre écran ; je vous conseille de le mettre en plein écran.
 
 
 ## Supplément
