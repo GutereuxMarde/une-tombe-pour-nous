@@ -1,7 +1,9 @@
 # une-tombe-pour-nous
 
 ## Description
-Dans ce cours jeu 2D, vous contrôlez un personnage étrange chargé d'un cadavre cherchant une terre saine pour l'inhumer. Vos pérégrinations vous feront passer par des lieux aussi inhospitaliers que mystérieux où le danger guette à tout instant. Le jeu est également accompagné de diverses musiques habillant les différentes séquences. Il s'agit de l'adaptation en 2D de la fiction interactive, autrement plus longue et complète, "Des lits pour eux" : https://github.com/GutereuxMarde/Des-lits-pour-eux---FI
+Dans ce cours jeu 2D, vous contrôlez un personnage étrange chargé d'un cadavre cherchant une terre saine pour l'inhumer. Vos pérégrinations vous feront passer par des lieux aussi inhospitaliers que mystérieux où le danger guette à tout instant. Le jeu est également accompagné de diverses musiques habillant les différentes séquences. Le jeu se joue en utilisant les flèches du clavier et la barre espace pour attaquer. Si vous devrez parfois faire usage de la force pour vous en sortir, d'autres fois il vous sera demandé de fuir ou d'esquiver.
+
+Il s'agit de l'adaptation en 2D de la fiction interactive, autrement plus longue et complète, "Des lits pour eux" : https://github.com/GutereuxMarde/Des-lits-pour-eux---FI
 
 
 ![une tombe pour nous](https://github.com/user-attachments/assets/c03d4a91-f1d9-4588-b036-176cefd165ac)
@@ -62,4 +64,4 @@ Free fish assets - AGD-Awkward Game Dev  https://agdawkwardgamedev.itch.io/free-
 
 
 ## Contexte de développement
-Ce jeu a été réalisé par Arthur Garbi sur Kaboom.js dans le cadre du cours Développement de jeux vidéo 2D dispensé par Isaac Pante (SLI, Lettres, UNIL) à l'Université de Lausanne.
+Ce jeu a été réalisé par Arthur Garbi sur Kaplay.js dans le cadre du cours Développement de jeux vidéo 2D dispensé par Isaac Pante (SLI, Lettres, UNIL) à l'Université de Lausanne.
