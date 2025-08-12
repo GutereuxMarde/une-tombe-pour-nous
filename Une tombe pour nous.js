@@ -134,7 +134,6 @@ loadSprite("CM", "MysteryMonk.png", {
 			loop : false
 		}
     },
-	 // pour changer la taille mais à voir comment ça se passe
 
 })
 loadSprite("ombres", "Ombres.png", {
@@ -299,7 +298,7 @@ scene("ecranTitre", () => {
     const personnage = add([
         sprite("CM"),
         pos(stretchPos(100, 1190)),
-        area(),
+        area({ shape: new Rect(vec2(0), 23, 30) }),
         body(),
         z(3),
         scale(stretchScale(cmScale)),
@@ -308,12 +307,24 @@ scene("ecranTitre", () => {
             vitesse: 190
         }
     ]);
-    personnage.add([
+    const cadavre = personnage.add([
         sprite("cadavre"),
         rotate(0),
         z(6),
         anchor(vec2(-1, -6).scale(0.25)),
     ]);
+    function updateCadavrePosition() {
+        if (personnage.flipX) {
+            cadavre.pos = vec2(32, 0);
+            cadavre.scale = vec2(-1, 1);
+        } else {
+            cadavre.pos = vec2(0, 0);
+            cadavre.scale = vec2(1, 1);
+        }
+    }
+    personnage.onUpdate(() => {
+        updateCadavrePosition();
+    });
     personnage.play("inactif");
 
    
@@ -460,7 +471,6 @@ scene("jeu", () => {
     const personnage = add([
         sprite("CM"),
         pos(stretchPos(100, 1250)),
-        area(),
         area({ shape: new Rect(vec2(0), 23, 30) }),
         body(),
         z(2),
@@ -499,14 +509,14 @@ scene("jeu", () => {
 	//dialogue
     personnage.onCollide("vieux", () => {
         const dialogs = [
-            [ "vieux", "C'est rare d'avoir d'la visite dans l'coin...t'es qui? ↓" ],
+            [ "vieux", "C'est rare d'avoir d'la visite dans l'coin...t'es qui ? ↓" ],
             [ "CM", "...Je cherche une terre saine pour enterrer un cadavre... ↓" ],
-            [ "vieux", "Oh... Croque-mort, hein? Ça faisait un bout d'temps qu'j'avais pas vu quelqu'un comme toi! ↓" ],
-            [ "vieux", "Toi, qui est entre Charon et Tantale, je vais te dire quelque chose... ↓" ],
-            [ "vieux", "A l'ouest d'ici, au delà des marais, y parait qu'il reste une clairière, avec de la terre pure, pas souillée! Si t'as assez de cran et si c'est si important pour toi de mener ta mission à bien...c'est là bas que tu devras te rendre. ↓" ],
+            [ "vieux", "Oh... Croque-mort, hein ? Ça faisait un bout d'temps qu'j'avais pas vu quelqu'un comme toi ! ↓" ],
+            [ "vieux", "Toi, descendant de Charon, je vais te dire quelque chose... ↓" ],
+            [ "vieux", "A l'ouest d'ici, au delà des marais derrière moi, y parait qu'il reste une clairière, avec de la terre pure, pas souillée ! Et un bel arbre ! Si t'as assez de cran et si c'est si important pour toi de mener ta mission à bien...c'est là bas que tu devras te rendre. ↓" ],
             [ "vieux", "...sache qu'il ne reste plus que moi ici... La poisse a tout emporté... ↓" ],
             [ "vieux", "Personne ne pourra t'aider pour un quelconque rite funéraire, c'est à toi de te débrouiller ! ↓" ],
-            [ "vieux", "Toi, qui porte les morts, j'te souhaite bonne chance, t'en auras besoin! Les laisse pas t'prendre ton cadavre! ↓" ],
+            [ "vieux", "Toi qui porte les morts, j'te souhaite bonne chance, t'en auras besoin ! ↓" ],
         ];
 
         let curDialog = 0;
@@ -919,7 +929,7 @@ scene("jeu1", () => {
             area(),
             body(),
             scale(stretchScale(4.2), scaleY * 4.2),
-            z(5),
+            z(4),
             "monstre",
             {
                 vitesse: 120 * scaleX
@@ -1278,9 +1288,9 @@ scene("jeu2", () => {
         const dialogs = [
             [ "Des catacombes ! Cet endroit empeste la mort. ↓" ],
             [ "Avec le temps, les cimetières deviennent trop bondés et les tombes se délabrent. ↓" ],
-            [ "Quand on ne sait que faire des ossements sans nom qui gisent çà et là dans la terre, on les rassemble dans des amas squelettiques dans des galleries souterraines comme celle-ci. ↓" ],
+            [ "Quand on ne sait que faire des ossements sans nom qui gisent çà et là dans la terre, on les rassemble pour former des amas squelettiques dans des galleries souterraines comme celle-ci. ↓" ],
             [ "Ces dédales mortuaires peuvent être absolument gigantesques et de vieilles cités en possèdent parfois. ↓" ],
-            [ "Par chance, je crois entendre un bruit d'eau en contre-bas. Avec un peu de chance, il s'agit d'une sortie. ↓" ],
+            [ "Je crois entendre un bruit d'eau en contre-bas. Avec un peu de chance, il s'agit d'une sortie. ↓" ],
             [ "Bizarrement, je ne vois ni crâne, ni côte, ni aucun os d'aucune sorte dans cette hypogée. ↓" ],
             [ "J'ai un mauvais pressentiment, il faut que je me hâte... ↓" ],
         ];
@@ -1601,9 +1611,9 @@ scene("jeu3", () => {
         const dialogs = [
             [ "Un lit de rivière, saturé par un cortège d'urnes funéraires ! ↓" ],
             [ "La crémation, le fait de brûler les morts, est commun à d'innombrables cultures à travers le monde. ↓" ],
-            [ "Il arrive par exemple qu'on veuille disperser les cendres dans l'océan, dans ce qu'on appelle des sépultures en mer. ↓" ],
+            [ "Il arrive par exemple qu'on veuille disperser les cendres dans l'océan dans ce qu'on appelle des sépultures en mer. ↓" ],
             [ "Comme il n'y a plus personne ici, j'imagine que les urnes, souvent biodégradables, se dissolveront dans l'eau de mer. ↓" ],
-            [ "Je crois me souvenir que dans les régions scandinaves, il était courant d'envoyer les défunts à l'eau, entourés d'armes et d'objets précieux. ↓" ],
+            [ "Je crois me souvenir que dans les régions scandinaves il était courant d'envoyer les défunts à l'eau, entourés d'armes et d'objets précieux. ↓" ],
             [ "Ici ce sont donc des urnes contenant les cendres des morts. Je ne suis pas certain de connaître l'origine de l'étrange symbole qui y figure. ↓" ],
             [ "Ce cortège funèbre se dirige vers l'ouest. ↓" ],
             [ "Si je me rappelle bien, dans l'Antiquité, les Grecs croyaient que le Paradis se trouvait loin à l'ouest, par-delà les océans. ↓" ],
@@ -1721,11 +1731,10 @@ scene("jeu3", () => {
             destroy(poisson)
         }
     });
-    loop(4.7, () => {
+    loop(4, () => {
         const poisson = add([
             sprite("poisson"),
             pos(stretchPos(2300, 1190)),
-            area(),
             area({ shape: new Rect(vec2(0), 90, 40) }),
             z(6),
             scale(stretchScale(1.5)),
@@ -1900,7 +1909,7 @@ scene("jeu4", () => {
             [ "Les différentes terres que j'ai traversées montraient des signes de pratiques funéraires archaïques ou du moins inhabituelles pour moi. ↓" ],
             [ "Je me demande si dans quelques siècles, quelqu'un passera par le même chemin que moi et verra la tombe que je m'apprête à creuser. ↓" ],
             [ "Peut-être que cette personne se questionnera sur mes pratiques à moi ? ↓" ],
-            [ "Il est alors important de se montrer compréhensif et respectueux des morts disséminés un peu partout, selon leur croyance et leur volonté, je l'espère. ↓" ],
+            [ "Il est alors important de se montrer compréhensif et respectueux des morts disséminés un peu partout, selon leurs croyances et leurs volontés, je l'espère. ↓" ],
         ];
 
         let curDialog = 0;
@@ -2240,7 +2249,7 @@ scene("fin", () => {
 go("ecranTitre");
 
 
-/**CHOSES A CORRIGER OU A MODIFIER
+/**CHOSES A AMÉLIORER
  * jouer l'animation d'attaque alors que l'animation de marche est lancée
  * faire en sorte que les monstres prennent le cadavre et qu'il faille le récupérer, un peu comme dans ICO avec Yorda
  * jouer l'animation de mort des monstres, mais trop difficile de gérer le cadavre par la suite et ne fonctionne pas très bien
